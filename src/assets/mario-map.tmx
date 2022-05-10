@@ -213,14 +213,14 @@
  <objectgroup id="8" name="Goomba">
   <object id="122" gid="883" x="120" y="140" width="16" height="16"/>
  </objectgroup>
- <objectgroup color="#ff0000" id="5" name="Moneda 1">
+ <objectgroup color="#ff0000" id="5" name="Monedes">
   <object id="24" gid="433" x="100.667" y="485.333" width="16" height="16"/>
   <object id="25" gid="433" x="772" y="168" width="16" height="16"/>
   <object id="26" gid="433" x="598.667" y="332" width="16" height="16"/>
   <object id="27" gid="433" x="140" y="105.333" width="16" height="16"/>
   <object id="28" gid="433" x="262.667" y="110.667" width="16" height="16"/>
  </objectgroup>
- <objectgroup color="#5500ff" id="6" name="Moneda 2">
+ <objectgroup color="#5500ff" id="6" name="Plumes">
   <object id="210" gid="853" x="779" y="477" width="16" height="16"/>
  </objectgroup>
 </map>

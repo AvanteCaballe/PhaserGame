@@ -9,7 +9,7 @@ class Pluma {
         });
 
         // You could also use the same object layer and differentiate between different objects by custom properties
-        const plumaObjects = this.scene.map.getObjectLayer('Moneda 2').objects;
+        const plumaObjects = this.scene.map.getObjectLayer('Plumes').objects;
         
         for (const pluma of plumaObjects) {
             this.plumes.create(pluma.x, pluma.y, 'pluma')

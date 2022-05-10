@@ -1,19 +1,17 @@
 class Coin {
     constructor(scene) {
         this.scene = scene;
-        // Or you can simply say staticGroup, to make them immovable an not affected by gravity
         this.coins = this.scene.physics.add.group({
             immovable: true,
             allowGravity: false
         });
 
-        // You could also use the same object layer and differentiate between different objects by custom properties
-        const coinObjects = this.scene.map.getObjectLayer('Moneda 1').objects;
+        const coinObjects = this.scene.map.getObjectLayer('Monedes').objects;
         
         for (const coin of coinObjects) {
             this.coins.create(coin.x, coin.y, 'atlas')
             .setOrigin(0)
-            .setDepth(-1);
+            .setDepth(1);
         }
     }
 

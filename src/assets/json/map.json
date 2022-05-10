@@ -221,7 +221,7 @@
          "color":"#ff0000",
          "draworder":"topdown",
          "id":5,
-         "name":"Moneda 1",
+         "name":"Monedes",
          "objects":[
                 {
                  "gid":433,
@@ -293,7 +293,7 @@
          "color":"#5500ff",
          "draworder":"topdown",
          "id":6,
-         "name":"Moneda 2",
+         "name":"Plumes",
          "objects":[
                 {
                  "gid":853,

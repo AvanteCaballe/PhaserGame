@@ -4,6 +4,7 @@ class Goomba {
         this.goombas = this.scene.physics.add.group();
         this.collider = this.scene.physics.add.collider(this.scene.player.sprite, this.goombas, this.gameOver, null, this);
    
+
         const goombaObjects = this.scene.map.getObjectLayer('Goomba').objects;
 
         for (const goomba of goombaObjects) {
@@ -46,7 +47,6 @@ class Goomba {
     }
 
     gameOver() {
-        // PHEW
         if (this.scene.player.sprite.body.touching.down) {
             this.die();
 
@@ -70,7 +70,7 @@ class Goomba {
                     this.scene.scene.start('Game2', {score: this.scene.score, vides: this.scene.vides+=1})
                 }
             }
-        }, 2750);
+        }, 1750);
     }
 
     die() {

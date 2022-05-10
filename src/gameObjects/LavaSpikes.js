@@ -1,14 +1,13 @@
-class Water {
+class LavaSpikes {
     constructor(scene) {
         this.scene = scene;
 
-        this.aigua = this.scene.map.createLayer('Aigua', scene.tileset, 0, 0);
+        this.lavaspikes = this.scene.map.createLayer('Lava/Punxes', scene.tileset, 0, 0);
 
-        this.aigua.setCollisionByExclusion(-1, true);
+        this.lavaspikes.setCollisionByExclusion(-1, true);
 
-        this.collider = this.scene.physics.add.collider(this.scene.player.sprite, this.aigua, this.gameOver, null, this);
+        this.collider = this.scene.physics.add.collider(this.scene.player.sprite, this.lavaspikes, this.gameOver, null, this);
 
-        
     }
 
     gameOver() {
@@ -32,4 +31,4 @@ class Water {
     }
 }
 
-export default Water;
+export default LavaSpikes;
