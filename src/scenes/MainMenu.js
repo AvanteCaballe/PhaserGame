@@ -1,5 +1,4 @@
 import Phaser from 'phaser'
-
 class MainMenu extends Phaser.Scene
 {
     buttons = [];
