@@ -18,7 +18,7 @@ class Game extends Phaser.Scene {
         this.load.image('white', 'assets/img/whitespace.png');
         this.load.image('cor', 'assets/img/cor.png');
         this.load.tilemapTiledJSON('map','assets/json/map.json')
-        this.load.atlas('atlas', 'assets/img/mario-atlas.png','src/assets/json/mario-atlas.json');
+        this.load.atlas('atlas', 'assets/img/mario-atlas.png','assets/json/mario-atlas.json');
         this.load.on('complete', () => {
             generateAnimations(this);
         })
