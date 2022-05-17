@@ -6,9 +6,9 @@ class Congratulations extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio('victory', ['src/assets/music/victory.wav']);
-		this.load.image('glass-panel', 'src/assets/img/glassPanel.png')
-		this.load.image('cursor-hand', 'src/assets/img/cursor_hand.png')
+        this.load.audio('victory', ['assets/music/victory.wav']);
+		this.load.image('glass-panel', 'assets/img/glassPanel.png')
+		this.load.image('cursor-hand', 'assets/img/cursor_hand.png')
         this.cursors = this.input.keyboard.createCursorKeys()
     }
 

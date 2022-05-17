@@ -4,9 +4,9 @@ class GameOver extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio('gameover', ['src/assets/music/gameover.wav']);
-		this.load.image('glass-panel', 'src/assets/img/glassPanel.png')
-		this.load.image('cursor-hand', 'src/assets/img/cursor_hand.png')
+        this.load.audio('gameover', ['assets/music/gameover.wav']);
+		this.load.image('glass-panel', 'assets/img/glassPanel.png')
+		this.load.image('cursor-hand', 'assets/img/cursor_hand.png')
         this.cursors = this.input.keyboard.createCursorKeys()
     }
 

@@ -13,19 +13,19 @@ class Game2 extends Phaser.Scene {
     }
 
     preload() {        
-        this.load.image('tiles','src/assets/img/tiles.png');
-        this.load.image('pluma', 'src/assets/img/pluma.png');
-        this.load.image('white', 'src/assets/img/whitespace.png');
-        this.load.image('cor', 'src/assets/img/cor.png');
-        this.load.tilemapTiledJSON('map2','src/assets/json/map2.json')
-        this.load.atlas('atlas', 'src/assets/img/mario-atlas.png','src/assets/json/mario-atlas.json');
+        this.load.image('tiles','assets/img/tiles.png');
+        this.load.image('pluma', 'assets/img/pluma.png');
+        this.load.image('white', 'assets/img/whitespace.png');
+        this.load.image('cor', 'assets/img/cor.png');
+        this.load.tilemapTiledJSON('map2','assets/json/map2.json')
+        this.load.atlas('atlas', 'assets/img/mario-atlas.png','assets/json/mario-atlas.json');
         this.load.on('complete', () => {
             generateAnimations(this);
         })
-        this.load.audio('level2', ['src/assets/music/map2.wav'])
-        this.load.audio('coin_s', ['src/assets/music/coin.wav']);
-        this.load.audio('cape', ['src/assets/music/cape.wav']);
-        this.load.audio('death', ['src/assets/music/lifelost.wav']);
+        this.load.audio('level2', ['assets/music/map2.wav'])
+        this.load.audio('coin_s', ['assets/music/coin.wav']);
+        this.load.audio('cape', ['assets/music/cape.wav']);
+        this.load.audio('death', ['assets/music/lifelost.wav']);
     }
 
     create(data) {
