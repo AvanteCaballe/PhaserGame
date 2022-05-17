@@ -15,9 +15,9 @@ class MainMenu extends Phaser.Scene
 
 	preload()
     {
-		this.load.image('glass-panel', 'src/assets/img/glassPanel.png')
-		this.load.image('cursor-hand', 'src/assets/img/cursor_hand.png')
-        this.load.audio('prelude', ['src/assets/music/mainmenu.wav']);
+		this.load.image('glass-panel', 'assets/img/glassPanel.png')
+		this.load.image('cursor-hand', 'assets/img/cursor_hand.png')
+        this.load.audio('prelude', 'assets/music/mainmenu.wav');
     }
 
     create()
