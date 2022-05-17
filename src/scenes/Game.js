@@ -23,15 +23,56 @@ class Game extends Phaser.Scene {
             generateAnimations(this);
         })
         this.load.audio('coin_s', ['src/assets/music/coin.wav']);
+        this.load.audio('level1', ['src/assets/music/map1.wav']);
         this.load.audio('cape', ['src/assets/music/cape.wav']);
         this.load.audio('death', ['src/assets/music/lifelost.wav']);
     }
 
-    create() {
+    create(data) {
+        if (this.restart==null && data.restart!=null) {
+            this.restart = data.restart
+        }
+
+        this.mapa = 1;
+        this.map = this.make.tilemap({ key: 'map'});
+        this.tileset = this.map.addTilesetImage('tileset', 'tiles');
+        this.map.createLayer('Background', this.tileset, 0, 0);
+        this.map.createLayer('Fons', this.tileset, 0, 0);
+        this.platform = this.map.createLayer('Mapa', this.tileset, 0, 0);
+        this.platform.setCollisionByExclusion(-1, true);
+        this.door = this.map.createLayer('Porta', this.tileset, 0, 0);
+        this.door.setCollisionByExclusion(-1,true)
+        this.soundtrack = this.sound.add("level1", {volume: 0.4})
+        this.coin = this.sound.add("coin_s", 1)
+        this.cape = this.sound.add("cape")
+        this.death = this.sound.add("death")
+
+
+
+        this.player = new Player(this, 25, 400).collideWith(this.platform);
+        this.goombas = new Goomba(this).collideWith(this.platform);
+        this.water = new Water(this);
+        this.coins = new Coin(this).collideWith(this.player.sprite);
+        this.plumes = new Pluma(this).collideWith(this.player.sprite);
+        this.inputs = this.input.keyboard.createCursorKeys();
+        this.collider = this.physics.add.collider(this.player.sprite, this.door, this.nextLevel, null, this);
+
         if(this.vides == null) {
             this.vides = vides;
+        } else if (this.restart == true) {
+            this.vides = 0
         }
-        this.videsText = this.add.text(730, 16, 'Vides: ', { fontSize: '16px', fill: '#000' });
+        if(this.score == null) {
+            this.soundtrack.play()
+            this.score = score;
+        } else if (this.restart == true) {
+            this.soundtrack.play()
+            this.score = 0;
+            this.restart = false
+            this.restart2 = true;
+        }
+
+        this.videsText = this.add.text(730, 16, 'Lives: ', { fontSize: '16px', fill: '#000' });
         switch (this.vides) {
             case 0:
                 this.vida1 = this.add.image(730, 46, 'cor').setScale(0.075,0.075);
@@ -44,34 +85,10 @@ class Game extends Phaser.Scene {
                 break;
             case 2:
                 this.vida1 = this.add.image(730, 46, 'cor').setScale(0.075,0.075);
+                this.restart = null
                 break;
         }
-        console.log(this.vides);
-        if(this.score == null) {
-            this.score = score;
-        }
-
         this.scoreText = this.add.text(16, 16, 'Score: ' + this.score, { fontSize: '16px', fill: '#000' });
-        this.mapa = 1;
-        this.map = this.make.tilemap({ key: 'map'});
-        this.tileset = this.map.addTilesetImage('tileset', 'tiles');
-        this.map.createLayer('Fons', this.tileset, 0, 0);
-        this.platform = this.map.createLayer('Mapa', this.tileset, 0, 0);
-        this.platform.setCollisionByExclusion(-1, true);
-        this.door = this.map.createLayer('Porta', this.tileset, 0, 0);
-        this.door.setCollisionByExclusion(-1,true)
-        this.coin = this.sound.add("coin_s", 1)
-        this.cape = this.sound.add("cape")
-        this.death = this.sound.add("death")
-
-
-        this.player = new Player(this, 25, 400).collideWith(this.platform);
-        this.goombas = new Goomba(this).collideWith(this.platform);
-        this.water = new Water(this);
-        this.coins = new Coin(this).collideWith(this.player.sprite);
-        this.plumes = new Pluma(this).collideWith(this.player.sprite);
-        this.inputs = this.input.keyboard.createCursorKeys();
-        this.collider = this.physics.add.collider(this.player.sprite, this.door, this.nextLevel, null, this);
 
     }
     
@@ -83,7 +100,9 @@ class Game extends Phaser.Scene {
     }
 
     nextLevel() {
-        this.scene.start('Game2', {score: this.score, vides: this.vides})
+        this.soundtrack.stop(true)
+        this.scene.start('Game2', {score: this.score, vides: this.vides, restart: this.restart2})
+        this.scene.stop('Game')
     }
 }
 

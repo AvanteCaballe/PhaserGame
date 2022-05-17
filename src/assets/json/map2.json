@@ -233,7 +233,19 @@
          "draworder":"topdown",
          "id":9,
          "name":"Plumes",
-         "objects":[],
+         "objects":[
+                {
+                 "gid":853,
+                 "height":16,
+                 "id":6,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":491,
+                 "y":52
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -302,8 +314,32 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":426,
-                 "y":62
+                 "x":418,
+                 "y":76
+                }, 
+                {
+                 "gid":433,
+                 "height":16,
+                 "id":7,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":742,
+                 "y":392
+                }, 
+                {
+                 "gid":433,
+                 "height":16,
+                 "id":8,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":338,
+                 "y":445
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -312,7 +348,7 @@
          "y":0
         }],
  "nextlayerid":11,
- "nextobjectid":6,
+ "nextobjectid":9,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.4",

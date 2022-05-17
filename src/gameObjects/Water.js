@@ -19,7 +19,9 @@ class Water {
         this.scene.physics.world.removeCollider(this.collider);
         setTimeout(() => {
             if (this.scene.vides == 2) {
+                this.scene.soundtrack.stop(true);
                 this.scene.scene.start('GameOver', {score: this.scene.score})
+                this.scene.scene.stop('Game')
             } else {
                 if (this.scene.mapa == 1) {
                     this.scene.scene.start('Game', {score: this.scene.score, vides: 
